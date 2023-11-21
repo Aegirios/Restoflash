@@ -1,0 +1,12 @@
+{% extends 'install.html.twig' %}
+
+{% block title %}Install{% endblock %}
+
+{% block body %}
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ asset('dist/img/restoflash_logo_200px.png') }}" alt="Logo Restoflash" width="72" height="72">
+        <h2>END OF INSTALLATION</h2>
+        <p class="lead">Thank you for choosing Restoflash! You will now be guided through the installation process of your Restoflash application. Feel free to share your feedback on our services!</p>
+        <a href="{{ path('install_check-requirements') }}" class="btn btn-success">Next</a>
+    </div>
+{% endblock %}

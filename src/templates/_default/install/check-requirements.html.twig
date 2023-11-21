@@ -1,0 +1,37 @@
+{% extends 'install.html.twig' %}
+
+{% block title %}Install{% endblock %}
+
+{% block body %}
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ asset('dist/img/restoflash_logo_200px.png') }}" alt="Logo Restoflash" width="72" height="72">
+        <h2>CHECK REQUIREMENTS</h2>
+        <p class="lead">Now, we will check if the requirements for Restoflash are properly provided/present.</p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Requirement</th>
+                <th scope="col">Minimal Value</th>
+                <th scope="col">Actual Value</th>
+                <th scope="col">Validated</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                    <tr>
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                        <td {% if not result[3] %}style="color: #ff0000;"{% endif %}>{{ result[3] ? 'Yes' : 'No' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if nextLinkEnabled %}
+            <a href="{{ path('install_database') }}" class="btn btn-success">Next</a>
+        {% else %}
+            <span>Impossible de passer à l'étape suivante. Veuillez corriger les paramètres requis.</span>
+        {% endif %}
+    </div>
+{% endblock %}
