@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Resto;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,7 +26,7 @@ class InstallConfigType extends AbstractType
                 'attr' => ['class' => 'form-control', 'id' => 'floatingInput', 'placeholder' => 'EMail Sender'],
                 'label_attr' => ['class' => 'sr-only'],
             ])
-            ->add('lang', TextType::class, [
+            ->add('lang', LanguageType::class, [
                 'label' => 'Lang',
                 'attr' => ['class' => 'form-control', 'id' => 'floatingInput', 'placeholder' => 'Lang'],
                 'label_attr' => ['class' => 'sr-only'],

@@ -47,7 +47,7 @@ class InstallController extends AbstractController
     #[Route('/install', name: 'install_index')]
     public function index(): Response
     {
-        return $this->render('install/index.html.twig');
+        return $this->render('_default/install/index.html.twig');
     }
 
     #[Route('/install/check-requirements', name: 'install_check-requirements')]

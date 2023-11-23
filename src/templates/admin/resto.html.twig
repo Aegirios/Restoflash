@@ -4,4 +4,28 @@
 
 {% block main %}
     Bonjour sur votre resto {{ app.user.email }}
+    {# Affichage du formulaire #}
+
+    {{ dump(resto.openingHours.monday) }}
+    {{ form_start(form) }}
+
+    {# Autres champs du formulaire #}
+    {{ form_row(form.name) }}
+    {{ form_row(form.emailSender) }}
+    {{ form_row(form.lang) }}
+    {{ form_row(form.logo) }}
+    {{ form_row(form.slogan) }}
+    {{ form_row(form.adress) }}
+    {{ form_row(form.telephone) }}
+    {{ form_row(form.contactMail) }}
+    {{ form_row(form.gps) }}
+    {{ form_row(form.isReservationPossible) }}
+    {{ form_row(form.cgu) }}
+    {{ form_row(form.confidentialityPolicy) }}
+    {{ form_row(form.reservationPolicy) }}
+    {# Debugging the data structure #}
+    {{ form_row(form.openingHours) }}
+    {{ form_row(form.closing) }}
+    {# Affichage des boutons du formulaire #}
+    {{ form_end(form) }}
 {% endblock %}
