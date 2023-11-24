@@ -1,0 +1,4 @@
+{
+    "HomeController": ["mainTitle", "mainp"],
+    "AboutController": ["mainTitle"]
+}

@@ -1,31 +1,19 @@
-{% extends '@EasyAdmin/page/content.html.twig' %}
+{# templates/easy_admin/crud/edit.html.twig #}
 
-{% block content_title %}Admin Dashboard Home{% endblock %}
+{% extends '@EasyAdmin/crud/edit.html.twig' %}
 
-{% block main %}
-    Bonjour sur votre resto {{ app.user.email }}
-    {# Affichage du formulaire #}
+{# Ajoutez ces lignes pour inclure vos fichiers CSS et JS #}
+{% block head_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+{% endblock %}
 
-    {{ dump(resto.openingHours.monday) }}
-    {{ form_start(form) }}
+{% block body_javascript %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+{% endblock %}
 
-    {# Autres champs du formulaire #}
-    {{ form_row(form.name) }}
-    {{ form_row(form.emailSender) }}
-    {{ form_row(form.lang) }}
-    {{ form_row(form.logo) }}
-    {{ form_row(form.slogan) }}
-    {{ form_row(form.adress) }}
-    {{ form_row(form.telephone) }}
-    {{ form_row(form.contactMail) }}
-    {{ form_row(form.gps) }}
-    {{ form_row(form.isReservationPossible) }}
-    {{ form_row(form.cgu) }}
-    {{ form_row(form.confidentialityPolicy) }}
-    {{ form_row(form.reservationPolicy) }}
-    {# Debugging the data structure #}
-    {{ form_row(form.openingHours) }}
-    {{ form_row(form.closing) }}
-    {# Affichage des boutons du formulaire #}
-    {{ form_end(form) }}
+{% block body %}
+    {{ parent() }}
+    {# Votre contenu personnalisé ici #}
 {% endblock %}

@@ -6,7 +6,6 @@
 parameters:
     upload_directory: '%kernel.project_dir%/public/dist/uploads'
 services:
-    Doctrine\DBAL\Driver\Connection: '@doctrine.dbal.default_connection'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

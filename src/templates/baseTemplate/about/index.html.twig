@@ -3,6 +3,5 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    {{ twigVariables.mainTitle }}
-    {{ twigVariables.mainp }}
+{{ twigVariables.mainTitle |raw }}
 {% endblock %}

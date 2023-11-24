@@ -68,5 +68,6 @@ class DashboardAdminController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Menu', 'fa-solid fa-bowl-food', Menu::class);
         yield MenuItem::section('Public rendering');
         yield MenuItem::linkToCrud('Modify twig variables', 'fa-brands fa-symfony', TwigVars::class);
+        yield MenuItem::linkToRoute('Set template', 'fa-solid fa-crop-simple', 'admin_generate');
     }
 }

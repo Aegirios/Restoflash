@@ -49,7 +49,7 @@ class AboutController extends AbstractController
 
 
         // Passez le tableau des variables Twig à la vue
-        return $this->render('baseTemplate/home/index.html.twig', [
+        return $this->render('baseTemplate/about/index.html.twig', [
             'twigVariables' => $twigVariables,
         ]);
     }
