@@ -1,0 +1,22 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}Admin Comptable Home{% endblock %}
+
+{% block main %}
+
+    {% for flashMessage in app.flashes('warning') %}
+        <div class="alert alert-warning">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+    Bonjour {{ app.user.email }}
+    <canvas id="myChart"></canvas>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var options = {{ jsonOptions|raw }};
+            var chart = new Chart(ctx, options);
+        });
+    </script>
+{% endblock %}

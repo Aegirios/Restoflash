@@ -21,9 +21,17 @@ class Ingrediant
     #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'Ingrediants')]
     private Collection $recipes;
 
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: Stock::class)]
+    private Collection $stocks;
+
+    #[ORM\OneToMany(mappedBy: 'Ingrediant', targetEntity: Stock::class)]
+    private Collection $stock;
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
+        $this->stocks = new ArrayCollection();
+        $this->stock = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,6 +81,40 @@ class Ingrediant
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Stock>
+     */
+    public function getStocks(): Collection
+    {
+        return $this->stocks;
+    }
+
+    public function addStock(Stock $stock): static
+    {
+        if (!$this->stocks->contains($stock)) {
+            $this->stocks->add($stock);
+        }
+
+        return $this;
+    }
+
+    public function removeStock(Stock $stock): static
+    {
+        if ($this->stocks->removeElement($stock)) {
+            // set th owning side to null (unless already changed)
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Stock>
+     */
+    public function getStock(): Collection
+    {
+        return $this->stock;
     }
 
 }

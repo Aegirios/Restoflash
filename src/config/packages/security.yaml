@@ -1,4 +1,11 @@
 security:
+    role_hierarchy:
+        ROLE_COOKER: ROLE_USER
+        ROLE_COMPTABLE: ROLE_USER
+        ROLE_LIVREUR: ROLE_USER
+        ROLE_RECEPTIONNIST: ROLE_USER
+        ROLE_SERVER: ROLE_USER
+        ROLE_ADMIN: [ROLE_USER, ROLE_COOKER, ROLE_COMPTABLE, ROLE_LIVREUR, ROLE_RECEPTIONNIST, ROLE_SERVER]
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
@@ -40,6 +47,11 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/cuisinier, roles: ROLE_COOKER }
+        - { path: ^/comptable, roles: ROLE_COMPTABLE }
+        - { path: ^/livreur, roles: ROLE_LIVREUR }
+        - { path: ^/receptionniste, roles: ROLE_RECEPTIONNIST }
+        - { path: ^/serveur, roles: ROLE_SERVEUR }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
